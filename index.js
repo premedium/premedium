@@ -1,1 +1,7 @@
-console.log(1);
+const a = 'sdgsdg';
+
+function b(c) {
+  return c;
+}
+
+b(a);
