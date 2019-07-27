@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "format": "prettier --config package.json --write '/**/*.{js, jsx, scss}'",
+    "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
     "lint:js": "eslint ./ --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
     "lint": "npm run lint:css && npm run lint:js"
