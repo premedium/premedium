@@ -4,7 +4,7 @@
   "description": "Premedium is platform for publication and reading articles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "format": "prettier --config package.json --write '/**/*.{js, jsx, scss}'",
     "lint:js": "eslint ./ --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
