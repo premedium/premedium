@@ -3,3 +3,5 @@ node_js:
   "10"
 cache: npm
 script: npm run lint
+notifications:
+  slack: premediumworkspace:d3pL7Ofs3MfSgWuxwWhJt3Cs
