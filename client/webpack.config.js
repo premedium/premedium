@@ -3,13 +3,14 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
-
+console.log(process.env);
+console.log(isDevelopment);
 module.exports = {
   entry: [
     './src/index.js',
   ],
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: isDevelopment ? path.resolve(__dirname, '/') : path.resolve(__dirname, '../public'),
     filename: 'bundle.js',
     publicPath: '/',
   },
@@ -87,9 +88,13 @@ module.exports = {
     }),
   ],
   devServer: {
+    stats: {
+      children: false,
+      maxModules: 0,
+    },
     contentBase: path.join(__dirname, 'public'),
     compress: true,
-    port: 9000,
+    port: 3000,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.sass'],

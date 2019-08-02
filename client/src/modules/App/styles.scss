@@ -1,9 +1,32 @@
 @font-face {
-  font-family: 'Pacifico';
-  src: url('../../fonts/Pacifico.ttf') format('ttf');
+  font-family: 'Grenze';
+  src: url('../../fonts/Grenze-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
-body {
-    color: red;
-  font-family: 'Pacifico', sans-serif;
-};
+@font-face {
+  font-family: 'Grenze';
+  src: url('../../fonts/Grenze-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+//body {
+//  color: red;
+//  font-family: 'Grenze', sans-serif;
+//}
+
+.bold-font {
+  font-family: 'Grenze', sans-serif;
+  font-weight: 700;
+  color: red;
+  font-size: 50px;
+}
+
+.light-font {
+  font-family: 'Grenze', sans-serif;
+  font-weight: 300;
+  color: blue;
+  font-size: 50px;
+}
