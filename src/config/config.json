@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "premedium_user",
+    "password": "premediumpass",
+    "database": "premedium",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "premedium_user",
+    "password": "premediumpass",
+    "database": "premedium",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "premedium_user",
+    "password": "premediumpass",
+    "database": "premedium",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}

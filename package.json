@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "nodemon index.js",
+    "dev": "nodemon -r dotenv/config --exec babel-node src/index.js dotenv_config_path=/",
+    "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
-    "lint:js": "eslint ./ --fix --format stylish --color",
+    "lint:js": "eslint ./src --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
     "lint": "npm run lint:css && npm run lint:js"
   },
@@ -22,10 +23,15 @@
   },
   "homepage": "https://github.com/premedium/premedium#readme",
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.2",
     "browserslist": "^4.6.6",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
@@ -37,6 +43,11 @@
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0"
   },
+  "eslintIgnore": [
+    "public",
+    "dist",
+    "**/migrations/"
+  ],
   "lint-staged": {
     "*.{js, jsx}": "eslint",
     "*.scss": "stylelint --fix"
@@ -57,7 +68,20 @@
     "maintained node versions",
     "not dead"
   ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "pg": "^7.12.0",
+    "rimraf": "^2.6.3",
+    "sequelize": "^5.12.3",
+    "sequelize-cli": "^5.5.0"
   }
 }
