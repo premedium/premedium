@@ -5,7 +5,8 @@
     "node": true
   },
   "extends": [
-    "airbnb"
+    "airbnb",
+    "prettier"
   ],
   "globals": {
     "Atomics": "readonly",
