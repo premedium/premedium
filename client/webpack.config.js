@@ -1,67 +1,79 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const isDevelopment = process.env.NODE_ENV === 'development';
-console.log(process.env);
-console.log(isDevelopment);
+const findProcessVariable = (key) => {
+  let value = null;
+  // eslint-disable-next-line consistent-return
+  process.argv.forEach((element, index) => {
+    if (element === key) {
+      value = process.argv[index + 1];
+    }
+  });
+  return value;
+};
+
+const isCustomDev = findProcessVariable('--customMode') === 'dev';
+
 module.exports = {
-  entry: [
-    './src/index.js',
-  ],
+  entry: ['./src/index.js'],
   output: {
-    path: isDevelopment ? path.resolve(__dirname, '/') : path.resolve(__dirname, '../public'),
+    path: isCustomDev
+      ? path.resolve(__dirname, '/')
+      : path.resolve(__dirname, '../public'),
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: '/'
   },
+  mode: isCustomDev ? 'development' : 'production',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-        },
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader',
-          },
-        ],
+            loader: 'html-loader'
+          }
+        ]
       },
       {
         test: /\.module\.s([ac])ss$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isCustomDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              sourceMap: isDevelopment,
-            },
+              sourceMap: isCustomDev
+            }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment,
-            },
-          },
-        ],
+              sourceMap: isCustomDev
+            }
+          }
+        ]
       },
       {
         test: /\.s([ac])ss$/,
         exclude: /\.module.(s([ac])ss)$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isCustomDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment,
-            },
-          },
-        ],
+              sourceMap: isCustomDev
+            }
+          }
+        ]
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -70,33 +82,35 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/',
-            },
-          },
-        ],
-      },
-    ],
+              outputPath: 'fonts/'
+            }
+          }
+        ]
+      }
+    ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: './public/index.html',
-      filename: './index.html',
+      filename: './index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? 'main.css' : 'main.[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
-    }),
+      filename: isCustomDev ? 'main.css' : 'main.[hash].css',
+      chunkFilename: isCustomDev ? '[id].css' : '[id].[hash].css'
+    })
   ],
   devServer: {
     stats: {
       children: false,
-      maxModules: 0,
+      maxModules: 0
     },
     contentBase: path.join(__dirname, 'public'),
     compress: true,
-    port: 3000,
+    hot: true,
+    port: 3000
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.sass'],
-  },
+    extensions: ['.js', '.jsx', '.scss', '.sass']
+  }
 };
