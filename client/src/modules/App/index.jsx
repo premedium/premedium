@@ -1,10 +1,11 @@
 import React from 'react';
-import './styles.scss';
+import Test1 from '../test1/index';
+import Test2 from '../test2/index';
 
 const App = () => (
   <div>
-    <div className="bold-font">BOLD FONT</div>
-    <div className="light-font">LIGHT FONT</div>
+    <Test1 />
+    <Test2 />
   </div>
 );
 
