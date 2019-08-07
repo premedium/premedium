@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env webpack-dev-server --open --mode development --customMode dev",
-    "build": "cross-env webpack --mode production --customMode prod"
+    "start": "webpack-dev-server --open --mode development --customMode dev",
+    "build": "webpack --mode production --customMode prod"
   },
   "keywords": [],
   "author": "",
