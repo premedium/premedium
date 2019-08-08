@@ -16,7 +16,7 @@ const findProcessVariable = (key) => {
 const isCustomDev = findProcessVariable('--customMode') === 'dev';
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.jsx'],
   output: {
     path: isCustomDev
       ? path.resolve(__dirname, '/')
