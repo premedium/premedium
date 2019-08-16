@@ -109,6 +109,9 @@ module.exports = {
     port: 3000
   },
   resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    },
     extensions: ['.js', '.jsx', '.scss', '.sass']
   }
 };

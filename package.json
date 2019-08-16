@@ -8,7 +8,7 @@
     "dev": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
     "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
-    "lint:js": "eslint ./src --fix --format stylish --color",
+    "lint:js": "eslint ./**/*.jsx --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
     "lint": "npm run lint:css && npm run lint:js"
   },

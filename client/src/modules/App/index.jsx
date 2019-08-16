@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import Test1 from '../test1/index';
 import Test2 from '../test2/index';
@@ -11,4 +12,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default hot(App);
