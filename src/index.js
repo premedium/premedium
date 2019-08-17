@@ -20,6 +20,14 @@ router.post('/testapi', (req, res) => {
   res.send({ test: 'Test' });
 });
 
+router.post('/testtest', (req, res) => {
+  res.send({ test: 'Test11111' });
+});
+
+router.post('/api/test', (req, res) => {
+  res.send({ test: 'Test API' });
+});
+
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Server is running on ${port} port.`);

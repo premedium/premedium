@@ -104,6 +104,12 @@ module.exports = {
       maxModules: 0
     },
     contentBase: path.join(__dirname, 'public'),
+    proxy: {
+      '**': {
+        target: 'http://localhost:5001',
+        secure: 'false'
+      }
+    },
     compress: true,
     hot: true,
     port: 3000

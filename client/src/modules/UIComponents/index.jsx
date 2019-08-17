@@ -20,11 +20,25 @@ class TestRequest extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
+  handleClickSecond = () => {
+    axios
+      .post('/api/test')
+      .then(function(response) {
+        console.log('response', response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <div>
         <button type="button" onClick={this.handleClick}>
           Send Request
+        </button>
+        <button type="button" onClick={this.handleClickSecond}>
+          Send Second Request
         </button>
       </div>
     );
