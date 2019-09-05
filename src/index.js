@@ -3,10 +3,11 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import path from 'path';
+import users from './routes';
 
 const app = express();
 const router = express.Router();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
 });
 
 app.use('/', router);
+app.use('/api', users);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

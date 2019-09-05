@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "dev": "nodemon -r dotenv/config --exec babel-node src/index.js dotenv_config_path=/",
-    "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
+    "start": "rimraf ./dist ./public && babel src --out-dir dist && node dist/index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
     "lint:js": "eslint ./src --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
