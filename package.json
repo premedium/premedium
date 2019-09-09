@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "dev": "nodemon -r dotenv/config --exec babel-node src/index.js dotenv_config_path=/",
-    "start": "rimraf ./dist ./public && babel src --out-dir dist && node dist/index.js",
+    "dev": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
+    "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
     "lint:js": "eslint ./src --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
@@ -74,12 +74,18 @@
     ]
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "express": "^4.17.1",
+    "jest": "^24.8.0",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^7.12.0",
+    "react-test-renderer": "^16.9.0",
     "rimraf": "^2.6.3",
     "sequelize": "^5.12.3",
     "sequelize-cli": "^5.5.0"
