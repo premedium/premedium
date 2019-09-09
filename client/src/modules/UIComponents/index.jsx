@@ -8,7 +8,7 @@ class TestRequest extends Component {
   }
 
   handleClick = () => {
-    console.log(this.state.clicked);
+
     axios
       .post('/testapi')
       .then(function(response) {
@@ -17,6 +17,7 @@ class TestRequest extends Component {
       .catch(function(error) {
         console.log(error);
       });
+    // eslint-disable-next-line react/destructuring-assignment,react/no-access-state-in-setstate
     this.setState({ clicked: !this.state.clicked });
   };
 
