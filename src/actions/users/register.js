@@ -1,6 +1,7 @@
-// import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { Users } from "../../models";
+
+import { Users } from '../../models';
+import { BCRYPT_SALT } from '../../constants';
 
 export default (req, res) => {
   const userData = {
@@ -10,13 +11,13 @@ export default (req, res) => {
     password: req.body.password
   };
 
-  userData.password = bcrypt.hashSync(userData.password, 10);
+  userData.password = bcrypt.hashSync(userData.password, BCRYPT_SALT);
 
   Users.create(userData)
     .then(() => {
-      res.json({status: 200});
+      res.json({ status: 200 });
     })
     .catch((err) => {
-      res.status(400).json({info: err});
+      res.status(400).json({ info: err.errors[0].message });
     });
 };

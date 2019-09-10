@@ -38,9 +38,10 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 const Users = UsersModel(sequelize, Sequelize);
 
-module.Users = Users;
-module.exports = {db, Users};
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+db.Users = Users;
+
+module.exports = db;
