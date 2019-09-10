@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+const UsersModel = require('./users');
 
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
@@ -39,5 +40,7 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+const Users = UsersModel(sequelize, Sequelize);
 
-module.exports = db;
+module.Users = Users;
+module.exports = {db, Users};

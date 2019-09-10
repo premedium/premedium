@@ -1,8 +1,11 @@
 import express from 'express';
-import users from './users';
+// import bodyParser from 'body-parser';
 
-const router = express.Router();
+import users from './api/users';
 
-router.post('/users', users);
+const router = express();
+
+// router.use(bodyParser.json());
+router.use('/users', users);
 
 export default router;

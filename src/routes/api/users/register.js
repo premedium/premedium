@@ -1,23 +1,10 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import register from "../../../actions/users/register";
 
-const users = express.Router();
+const login = express.Router();
 
-users.use(cors());
-
-const key = 'secret';
-
-users.post('/register/', (req, res) => {
-  const { userName, email, phoneNumber, password } = req;
-
-  const userData = {
-    user_name: userName,
-    email,
-    phone_number: phoneNumber,
-    password
-  };
-
-  res.secret = key;
-
-  return userData;
+login.post('/', (req, res) => {
+  register(req, res);
 });
+
+export default login;

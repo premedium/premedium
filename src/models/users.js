@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     'users',
     {
       id: {
-        type: DataTypes.MAX_SAFE_INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         allowNull: false,
         validate: {
-          not: ['s'],
           min: 4,
           max: 26
         }
