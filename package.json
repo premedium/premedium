@@ -90,6 +90,7 @@
     "rimraf": "^2.6.3",
     "sequelize": "^5.12.3",
     "sequelize-cli": "^5.5.0",
+    "uuid": "^3.3.3",
     "validator": "^11.1.0"
   }
 }

@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import { hashSync } from 'bcrypt';
 
 import { Users } from '../../models';
 import { BCRYPT_SALT } from '../../constants';
@@ -11,7 +11,7 @@ export default (req, res) => {
     password: req.body.password
   };
 
-  userData.password = bcrypt.hashSync(userData.password, BCRYPT_SALT);
+  userData.password = hashSync(userData.password, BCRYPT_SALT);
 
   Users.create(userData)
     .then(() => {
