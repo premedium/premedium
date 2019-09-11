@@ -4,7 +4,8 @@
   "description": "Premedium is platform for publication and reading articles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "dev": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
     "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
@@ -28,11 +29,13 @@
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.9.0",
     "browserslist": "^4.6.6",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
@@ -54,7 +57,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged jest",
       "pre-push": "lint-staged"
     }
   },

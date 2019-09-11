@@ -7,6 +7,7 @@
   },
   "extends": [
     "airbnb",
+    "plugin:jest/recommended",
     "prettier"
   ],
   "globals": {
@@ -22,7 +23,8 @@
   },
   "plugins": [
     "react",
-    "prettier"
+    "prettier",
+    "jest"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
