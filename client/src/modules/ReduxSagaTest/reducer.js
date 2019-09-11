@@ -1,16 +1,20 @@
-import { REDUX_SAGA_TEST_SUCCESS } from '../../constants';
+import { REDUX_SAGA_TEST_SUCCESS, REDUX_SAGA_TEST_FAIL } from '../../constants';
 
 const initialState = {
   data: ''
 };
 
 const reduxSagaTestReducer = (state = initialState, action) => {
-  console.log('reduxSagaTestReducer', action);
   switch (action.type) {
-    case REDUX_SAGA_TEST_SUCCESS:
+    case REDUX_SAGA_TEST_SUCCESS: {
       return { ...state, data: action.payload.data };
-    default:
+    }
+    case REDUX_SAGA_TEST_FAIL: {
+      return { ...state, data: action.payload };
+    }
+    default: {
       return state;
+    }
   }
 };
 
