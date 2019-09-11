@@ -9,9 +9,10 @@
     "dev": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
     "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
-    "lint:js": "eslint ./src --fix --format stylish --color",
+    "lint:js": "eslint ./**/*.jsx --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
-    "lint": "npm run lint:css && npm run lint:js"
+    "lint": "npm run lint:css && npm run lint:js",
+    "conc": "concurrently \"nodemon --exec babel-node src/index.js dotenv_config_path=/\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
     "browserslist": "^4.6.6",
+    "concurrently": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
