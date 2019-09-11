@@ -106,13 +106,13 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     proxy: {
       '**': {
-        target: 'http://localhost:5001',
+        target: 'http://localhost:3000',
         secure: 'false'
       }
     },
     compress: true,
     hot: true,
-    port: 3000
+    port: 3001
   },
   resolve: {
     alias: {

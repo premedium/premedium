@@ -6,13 +6,13 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "dev": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
+    "dev:server": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
     "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
     "lint:js": "eslint ./**/*.jsx --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
     "lint": "npm run lint:css && npm run lint:js",
-    "conc": "concurrently \"nodemon --exec babel-node src/index.js dotenv_config_path=/\" \"cd client && npm start\""
+    "dev": "concurrently \"npm run dev:server\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
