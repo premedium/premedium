@@ -14,7 +14,7 @@ const phoneNumber = (value) => {
     throw new Error(phoneMin);
   } else if (!isByteLength(value, { max: 20 })) {
     throw new Error(phoneMax);
-  } else if (!isMobilePhone(value, ['any'])) {
+  } else if (!isMobilePhone(value)) {
     throw new Error(phoneNotValid);
   }
 

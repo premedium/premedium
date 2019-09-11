@@ -6,8 +6,8 @@ import {
   phoneNotValid
 } from '../../../constants/validationTips';
 
-describe('Global check userName validation method', () => {
-  describe('Checking userName-method server validation', () => {
+describe('Global check phoneNumber validation method\n', () => {
+  describe('Checking phoneNumber-method server validation\n', () => {
     const data = [
       {
         have: '0000000',
@@ -17,38 +17,18 @@ describe('Global check userName validation method', () => {
         have: '3802545',
         wait: true
       },
-      {
-        have: 'test@test.test',
-        wait: true
-      },
-      {
-        have: 'test@test.test',
-        wait: true
-      },
-      {
-        have: 'test@test.test',
-        wait: true
-      },
-      {
-        have: 'test@test.test',
-        wait: true
-      },
-      {
-        have: 'test@test.test',
-        wait: true
-      }
     ];
 
     data.forEach((item) => {
       const { have, wait } = item;
 
-      test(`Call method userName on ${have} must be return ${wait}`, () => {
+      test(`Call method phoneNumber on ${have} must be return ${wait}\n`, () => {
         expect(phoneNumber(have)).toEqual(wait);
       });
     });
   });
 
-  describe('Checking exception in method userName', () => {
+  describe('Checking exception in method phoneNumber\n', () => {
     const errorData = [
       {
         have: '',
@@ -75,7 +55,7 @@ describe('Global check userName validation method', () => {
         phoneNumber(have);
       }
 
-      test(`Calling method with ${have} throw error with message`, () => {
+      test(`Calling method with ${have} throw error with message\n`, () => {
         expect(firstNameMock).toThrow(wait);
       });
     });
