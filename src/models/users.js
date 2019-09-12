@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         allowNull: false,
         validate: {
-          min: 4,
-          max: 26
+          min: 2,
+          max: 20
         }
       },
       email: {
