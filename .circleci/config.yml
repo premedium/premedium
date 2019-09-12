@@ -18,6 +18,9 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
+      - run: cd client
+      - run: npm install
+      - run: cd ../
 
       - save_cache:
           paths:
