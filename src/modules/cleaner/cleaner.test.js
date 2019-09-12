@@ -16,6 +16,25 @@ describe('Cleaner must be trim and remove special chars', () => {
     }
   ];
 
+  const typeData = [
+    {
+      have: 54,
+      must: '54'
+    },
+    {
+      have: true,
+      must: 'true'
+    }
+  ];
+
+  typeData.forEach((item) => {
+    const { have, must } = item;
+
+    test('The function must be return string', () => {
+      expect(cleaner(have)).toEqual(must);
+    });
+  });
+
   data.forEach((item) => {
     const { have, must } = item;
 
