@@ -6,10 +6,11 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "dev:server": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
+    "sim": "ts-node src/index.ts",
+    "dev:server": "nodemon",
     "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
     "format": "prettier --config package.json --write ./**/*.jsx ./**/*.js",
-    "lint:js": "eslint ./**/*.jsx --fix --format stylish --color",
+    "lint:js": "eslint ./**/*.ts --fix --format stylish --color",
     "lint:css": "stylelint ./**/*.scss --fix",
     "lint": "npm run lint:css && npm run lint:js",
     "dev": "concurrently \"npm run dev:server\" \"cd client && npm start\""
@@ -29,8 +30,13 @@
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/compression": "^1.0.1",
+    "@types/cors": "^2.8.6",
     "@types/express": "^4.17.1",
     "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
     "browserslist": "^4.6.6",
@@ -55,7 +61,8 @@
   "eslintIgnore": [
     "public",
     "dist",
-    "**/migrations/"
+    "**/migrations/",
+    "client"
   ],
   "lint-staged": {
     "*.{js, jsx}": "eslint",
@@ -79,7 +86,13 @@
   ],
   "babel": {
     "presets": [
-      "@babel/preset-env"
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/proposal-class-properties",
+      "@babel/proposal-object-rest-spread",
+      "@babel/plugin-transform-typescript"
     ]
   },
   "dependencies": {
@@ -97,7 +110,7 @@
     "pg": "^7.12.0",
     "react-test-renderer": "^16.9.0",
     "rimraf": "^2.6.3",
-    "sequelize": "^5.12.3",
+    "sequelize": "^5.19.0",
     "sequelize-cli": "^5.5.0",
     "uuid": "^3.3.3",
     "validator": "^11.1.0"

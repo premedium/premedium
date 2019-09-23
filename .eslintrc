@@ -5,10 +5,11 @@
     "es6": true,
     "node": true
   },
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
     "plugin:jest/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "globals": {
