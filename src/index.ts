@@ -4,8 +4,8 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import path from 'path';
 
-import routes from './routes/index';
-import { PORT } from './constants/index';
+import routes from './routes';
+import { PORT } from './constants';
 
 const app = express();
 const appRouter = express.Router();
