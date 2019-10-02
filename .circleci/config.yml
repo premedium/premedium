@@ -18,6 +18,9 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
+      - run: cd client
+      - run: npm install
+      - run: cd ../
 
       - save_cache:
           paths:
@@ -25,3 +28,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run test
+      - run: npm run lint

@@ -16,7 +16,7 @@ const findProcessVariable = (key) => {
 const isCustomDev = findProcessVariable('--customMode') === 'dev';
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.jsx'],
   output: {
     path: isCustomDev
       ? path.resolve(__dirname, '/')
@@ -104,11 +104,20 @@ module.exports = {
       maxModules: 0
     },
     contentBase: path.join(__dirname, 'public'),
+    proxy: {
+      '**': {
+        target: 'http://localhost:3000',
+        secure: 'false'
+      }
+    },
     compress: true,
     hot: true,
-    port: 3000
+    port: 3001
   },
   resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    },
     extensions: ['.js', '.jsx', '.scss', '.sass']
   }
 };

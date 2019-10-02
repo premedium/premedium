@@ -65,7 +65,3 @@ typings/
 
 # All files will be transpiles on CI
 /dist
-
-# Static files with front app, be create on CI
-
-/public

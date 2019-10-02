@@ -2,29 +2,47 @@
   "root": true,
   "env": {
     "browser": true,
-    "es6": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
+    "plugin:jest/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript",
     "prettier"
   ],
   "globals": {
-    "Atomics": "readonly",
+    "Atomic": "readonly",
     "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2019,
     "sourceType": "module"
   },
   "plugins": [
     "react",
-    "prettier"
+    "prettier",
+    "jest"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension":[1, { "extensions": [".jsx", ".js"] }],
+    "react/prefer-stateless-function": "off"
+  },
+  "settings": {
+    "import/resolver":{
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
   }
 }
