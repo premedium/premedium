@@ -1,62 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
+import { Sequelize } from 'sequelize';
+import * as config from '../config/config';
+import UsersModel from './users';
 
-const UsersModel = require('./users');
-const {
-  dbDialect,
-  dbHost,
-  dbName,
-  dbPassword,
-  dbUser
-} = require('../constants/dbConfigs');
-
-const basename = path.basename(__filename);
-// eslint-disable-next-line import/no-dynamic-require
-const config = {
-  username: dbUser,
-  password: dbPassword,
-  database: dbName,
-  host: dbHost,
-  dialect: dbDialect,
-  operatorsAliases: false
-};
-const db = {};
-
-const sequelize: object = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-);
-
-fs.readdirSync(__dirname)
-  .filter((file) => {
-    return (
-      file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
-    );
-  })
-  .forEach((file) => {
-    const model = sequelize.import(path.join(__dirname, file));
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+const { username, password, database, host, dialect } = config.development;
+export const sequelize = new Sequelize(database, username, password, {
+  host,
+  dialect
 });
-
 export const Users = UsersModel(sequelize, Sequelize);
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-db.Users = Users;
-
-module.exports = db;
-
-export default {
-  sequelize,
-  Sequelize,
-  Users
-};

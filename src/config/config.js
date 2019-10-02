@@ -7,8 +7,8 @@ const dbDialect = 'postgres';
 const envs = ['development', 'test', 'production'];
 const config = {};
 
-envs.map((item) => {
-  return config[item] = {
+envs.forEach((item) => {
+  config[item] = {
     username: dbUser,
     password: dbPassword,
     database: dbName,

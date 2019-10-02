@@ -1,5 +1,7 @@
-module.exports = (sequelize, DataTypes) => {
-  const users = sequelize.define(
+import { Model } from 'sequelize';
+
+const Users = (sequelize, DataTypes): Model => {
+  return sequelize.define(
     'users',
     {
       id: {
@@ -40,6 +42,6 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true
     }
   );
-  users.associate = () => {};
-  return users;
 };
+
+export default Users;

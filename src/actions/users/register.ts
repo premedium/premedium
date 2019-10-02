@@ -1,5 +1,5 @@
 import { hashSync } from 'bcrypt';
-import {Response, Request, Errback} from 'express';
+import { Response, Request, Errback } from 'express';
 
 import { Users } from '../../models';
 import { BCRYPT_SALT } from '../../constants';

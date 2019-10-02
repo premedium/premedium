@@ -7,7 +7,7 @@ import {
   emailNotValid
 } from '../../../constants/validationTips';
 
-const email = (value) => {
+const email = (value: string): boolean => {
   if (value === '') {
     throw new Error(requiredField);
   } else if (!isByteLength(value, { min: 6 })) {
