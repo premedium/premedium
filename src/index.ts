@@ -1,8 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import compression from 'compression';
-import path from 'path';
+import * as express from 'express';
+import * as cors from 'cors';
+import * as bodyParser from 'body-parser';
+import * as compression from 'compression';
+import * as path from 'path';
 
 import routes from './routes';
 import { PORT } from './constants';

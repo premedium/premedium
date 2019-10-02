@@ -1,13 +1,14 @@
 import { hashSync } from 'bcrypt';
+import { Response, Request, Errback } from 'express';
 
 import { Users } from '../../models';
 import { BCRYPT_SALT } from '../../constants';
 
-export default (req, res) => {
+export default (req: Request, res: Response): void => {
   const userData = {
     user_name: req.body.user_name,
     email: req.body.email,
-    phone: req.phone,
+    phone: req.body.phone,
     password: req.body.password
   };
 
@@ -17,7 +18,7 @@ export default (req, res) => {
     .then(() => {
       res.json({ status: 200 });
     })
-    .catch((err) => {
-      res.status(400).json({ info: err.errors[0].message });
+    .catch((err: Errback) => {
+      res.status(400).json({ info: err });
     });
 };

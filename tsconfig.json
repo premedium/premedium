@@ -1,0 +1,20 @@
+{
+  "target": "ES5",
+  "module": "es6",
+  "declaration": true,
+  "outDir": "./dist",
+  "rootDir": "./src",
+  "composite": true,
+  "strict": true,
+  "moduleResolution": "node",
+  "allowSyntheticDefaultImports": true,
+  "esModuleInterop": false,
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es5"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

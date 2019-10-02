@@ -7,7 +7,7 @@ import {
   phoneNotValid
 } from '../../../constants/validationTips';
 
-const phoneNumber = (value) => {
+const phoneNumber = (value: string): boolean => {
   if (value === '') {
     throw new Error(requiredField);
   } else if (!isByteLength(value, { min: 2 })) {

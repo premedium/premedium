@@ -16,7 +16,7 @@ describe('Global check phoneNumber validation method\n', () => {
       {
         have: '3802545',
         wait: true
-      },
+      }
     ];
 
     data.forEach((item) => {
@@ -51,7 +51,7 @@ describe('Global check phoneNumber validation method\n', () => {
     errorData.forEach((item) => {
       const { have, wait } = item;
 
-      function firstNameMock() {
+      function firstNameMock(): void {
         phoneNumber(have);
       }
 
