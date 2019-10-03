@@ -1,6 +1,6 @@
-import express from 'express';
+import * as express from 'express';
 
-import users from './api/users';
+import users from './api/users/index';
 
 const router = express();
 
