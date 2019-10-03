@@ -71,7 +71,7 @@ describe('Global check email validation method', () => {
     errorData.forEach((item) => {
       const { have, wait } = item;
 
-      function emailMock() {
+      function emailMock(): void {
         email(have);
       }
 

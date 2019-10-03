@@ -66,7 +66,7 @@ describe('Global check userName validation method', () => {
     errorData.forEach((item) => {
       const { have, wait } = item;
 
-      function firstNameMock() {
+      function firstNameMock(): void {
         userName(have);
       }
 

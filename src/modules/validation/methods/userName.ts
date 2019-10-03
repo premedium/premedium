@@ -6,7 +6,7 @@ import {
   requiredField
 } from '../../../constants/validationTips';
 
-const userName = (value) => {
+const userName = (value: string): boolean => {
   if (value === '') {
     throw new Error(requiredField);
   } else if (!isByteLength(value, { min: 2 })) {
