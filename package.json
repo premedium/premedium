@@ -4,7 +4,7 @@
   "description": "Premedium is platform for publication and reading articles",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest && cd client && npm run test",
     "coverage": "jest --coverage",
     "dev:server": "nodemon --exec babel-node src/index.js dotenv_config_path=/",
     "start": "rimraf ./dist ./public && babel src --out-dir dist && node index.js",
@@ -49,6 +49,7 @@
     "stylelint-config-standard": "^18.3.0"
   },
   "eslintIgnore": [
+    "client",
     "public",
     "dist",
     "**/migrations/"

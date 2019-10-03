@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import reduxSagaTestAction from './action';
 
+
 class ReduxSagaTest extends Component {
   handleClick = () => {
     // eslint-disable-next-line no-shadow,react/prop-types

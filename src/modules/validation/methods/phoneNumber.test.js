@@ -16,7 +16,7 @@ describe('Global check phoneNumber validation method\n', () => {
       {
         have: '3802545',
         wait: true
-      },
+      }
     ];
 
     data.forEach((item) => {
