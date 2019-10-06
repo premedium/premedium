@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize, Model } from 'sequelize';
 import * as config from '../config/config';
 import UsersModel from './users';
 
@@ -7,4 +7,4 @@ export const sequelize = new Sequelize(database, username, password, {
   host,
   dialect
 });
-export const Users = UsersModel(sequelize, Sequelize);
+export const Users: Model = UsersModel(sequelize, Sequelize);
