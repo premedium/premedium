@@ -106,7 +106,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     proxy: {
       '**': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3001',
         secure: 'false'
       }
     },
