@@ -1,47 +1,64 @@
-import { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
-const Users = (sequelize, DataTypes): Model => {
-  return sequelize.define(
-    'users',
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      user_name: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-        validate: {
-          min: 2,
-          max: 20
-        }
-      },
-      email: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-        validate: {
-          isEmail: true
-        }
-      },
-      phone_number: {
-        type: DataTypes.STRING,
-        unique: true,
-        validate: {
-          isNumeric: true
-        }
-      },
-      password: {
-        allowNull: false,
-        type: DataTypes.STRING
+import sequelize from './index';
+
+class User extends Model {
+  public id: number;
+
+  public user_name: string;
+
+  public email: string;
+
+  public phone: string;
+
+  public password: string;
+
+  public readonly createdAt!: Date;
+
+  public readonly updatedAt!: Date;
+}
+
+User.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        min: 2,
+        max: 20
       }
     },
-    {
-      underscored: true
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
+    },
+    phone: {
+      type: DataTypes.STRING,
+      unique: true,
+      validate: {
+        min: 6,
+        max: 18
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
-  );
-};
+  },
+  {
+    tableName: 'users',
+    sequelize
+  }
+);
 
-export default Users;
+export default User;
