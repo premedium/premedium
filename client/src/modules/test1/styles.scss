@@ -1,16 +1,3 @@
-@font-face {
-  font-family: 'Grenze';
-  src: url('../../fonts/Grenze-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Grenze';
-  src: url('../../fonts/Grenze-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
 
 //body {
 //  color: red;
@@ -18,14 +5,14 @@
 //}
 
 .bold-font {
-  font-family: 'Grenze', sans-serif;
+  font-family: 'Merriweather', sans-serif;
   font-weight: 700;
   color: red;
   font-size: 50px;
 }
 
 .light-font {
-  font-family: 'Grenze', sans-serif;
+  font-family: 'Merriweather', sans-serif;
   font-weight: 300;
   color: blue;
   font-size: 50px;

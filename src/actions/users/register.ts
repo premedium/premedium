@@ -13,7 +13,8 @@ export default (req: Request, res: Response): void => {
   };
 
   userData.password = hashSync(userData.password, BCRYPT_SALT);
-
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
   Users.create(userData)
     .then(() => {
       res.json({ status: 200 });

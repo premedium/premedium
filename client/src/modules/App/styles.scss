@@ -1,32 +1,27 @@
 @font-face {
-  font-family: 'Grenze';
-  src: url('../../fonts/Grenze-Bold.ttf') format('truetype');
+  font-family: 'Merriweather';
+  src: url('../../fonts/Merriweather-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../fonts/Merriweather-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Grenze';
-  src: url('../../fonts/Grenze-Light.ttf') format('truetype');
-  font-weight: 300;
+  font-family: 'Merriweather';
+  src: url('../../fonts/Merriweather-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
 
-//body {
-//  color: red;
-//  font-family: 'Grenze', sans-serif;
-//}
-
-.bold-font {
-  font-family: 'Grenze', sans-serif;
-  font-weight: 700;
-  color: green;
-  font-size: 50px;
-}
-
-.light-font {
-  font-family: 'Grenze', sans-serif;
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../fonts/Merriweather-Light.ttf') format('truetype');
   font-weight: 300;
-  color: blue;
-  font-size: 50px;
+  font-style: normal;
 }
