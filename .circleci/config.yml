@@ -5,8 +5,8 @@ jobs:
       only:
         - master
         - dev
-        - /back-.*/
-        - /feature-.*/
+        - /back/.*/
+        - /feature/.*/
     docker:
       - image: circleci/node:10.15
     working_directory: ~/premedium
