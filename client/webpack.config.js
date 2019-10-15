@@ -103,6 +103,7 @@ module.exports = {
       children: false,
       maxModules: 0
     },
+    historyApiFallback: true,
     contentBase: path.join(__dirname, 'public'),
     proxy: {
       '**': {

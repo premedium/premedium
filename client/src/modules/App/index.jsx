@@ -1,6 +1,6 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Test1 from '../test1/index';
 import Test2 from '../test2/index';
@@ -12,10 +12,15 @@ import './styles.scss';
 const App = () => (
   <div className="App-wrapper">
     <Header />
-    <Test1 />
-    <Test2 />
-    <ReduxSagaTest />
-    <UIComponents />
+    <Route exact path="/" component={Test1} />
+    <Route path="/Test2" component={Test2} />
+    <Route path="/UIComponents" component={UIComponents} />
+    <Route path="/ReduxSagaTest" component={ReduxSagaTest} />
+
+    {/*<Test1 />*/}
+    {/*<Test2 />*/}
+    {/*<ReduxSagaTest />*/}
+    {/*<UIComponents />*/}
   </div>
 );
 

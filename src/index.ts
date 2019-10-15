@@ -15,8 +15,12 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(compression());
 
-appRouter.get('/', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/../public/index.html`));
+appRouter.get('/*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/../public/index.html`), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 
 app.use('/', appRouter);

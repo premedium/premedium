@@ -1,3 +1,4 @@
+//general styles
 @font-face {
   font-family: 'Merriweather';
   src: url('../../fonts/Merriweather-Black.ttf') format('truetype');
@@ -24,4 +25,9 @@
   src: url('../../fonts/Merriweather-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
+}
+
+.container {
+  width: 100%;
+  max-width: 1366px;
 }
