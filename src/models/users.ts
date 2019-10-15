@@ -3,6 +3,14 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from './index';
 
 class User extends Model {
+  static create(userData: {
+    user_name: any;
+    email: any;
+    phone: any;
+    password: any;
+  }) {
+    throw new Error('Method not implemented.');
+  }
   public id: number;
 
   public user_name: string;
