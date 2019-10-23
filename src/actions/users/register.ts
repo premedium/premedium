@@ -1,7 +1,7 @@
 import { hashSync } from 'bcrypt';
 import { Response, Request, Errback } from 'express';
 
-import { Users } from '../../models';
+import User from '../../models/users';
 import { BCRYPT_SALT } from '../../constants';
 
 export default (req: Request, res: Response): void => {
@@ -14,7 +14,7 @@ export default (req: Request, res: Response): void => {
 
   userData.password = hashSync(userData.password, BCRYPT_SALT);
 
-  Users.create(userData)
+  User.create(userData)
     .then(() => {
       res.json({ status: 200 });
     })
