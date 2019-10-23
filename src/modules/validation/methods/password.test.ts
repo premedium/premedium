@@ -61,7 +61,7 @@ describe('Checking function password', () => {
         wait: passwordMax
       },
       {
-        have: 'er1234123',
+        have: 'er1234123№',
         wait: passwordChars
       },
       {
