@@ -3,10 +3,7 @@ jobs:
   build:
     branches:
       only:
-        - master
-        - dev
-        - /back/.*/
-        - /feature/.*/
+        - /.*/
     docker:
       - image: circleci/node:10.15
     working_directory: ~/premedium
