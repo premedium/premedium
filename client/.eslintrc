@@ -1,22 +1,15 @@
 {
-  "root": true,
   "env": {
+    "node": false,
     "browser": true,
-    "node": true,
     "es6": true
   },
-  "parser": "@typescript-eslint/parser",
+  "parser": "babel-eslint",
   "extends": [
     "airbnb",
     "plugin:jest/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript",
     "prettier"
   ],
-  "globals": {
-    "Atomic": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -29,20 +22,17 @@
     "prettier",
     "jest"
   ],
-  "rules": {
-    "react/jsx-filename-extension":[1, { "extensions": [".jsx", ".js"] }],
-    "react/prefer-stateless-function": "off"
-  },
   "settings": {
     "import/resolver":{
       "node": {
         "extensions": [
           ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
+          ".jsx"
         ]
       }
     }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
