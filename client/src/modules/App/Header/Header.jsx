@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { withRouter } from "react-router";
 import './Header.scss';
 import logo from '../../../assets/images/logo.svg';
 
-class Header extends Component {
-  render() {
+const Header = () => {
+    let location = useLocation();
     return (
       <header className="header">
         <div className="container">
@@ -29,13 +30,12 @@ class Header extends Component {
 
             <div className="header__sign-btns">
               <Link className="header__sign-in" to="/signin">sign in</Link>
-              <Link className="header__sign-up" to="/signup">sign up</Link>
+              <Link className="header__sign-up" to={{ pathname: '/signup', state: { background: location } }}>sign up</Link>
             </div>
           </div>
         </div>
       </header>
-    );
-  }
-}
+    )};
 
-export default Header;
+
+export default withRouter(Header);
